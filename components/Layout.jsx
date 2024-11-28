@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import Nav from "./Nav";
 
 export default function Layout({ children }) {
@@ -14,16 +13,16 @@ export default function Layout({ children }) {
       }
     };
 
-    handleResize(); 
+    handleResize(); // Ensure correct state on initial load
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="bg-bgGray, flex">
+    <div className="flex bg-white-100">
       <Nav sidebarOpen={sidebarOpen} />
-      <div className="flex-grow    w-full">{children}</div>
+      <div className="flex-grow w-full">{children}</div>
     </div>
   );
 }
